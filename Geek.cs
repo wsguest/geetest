@@ -197,7 +197,7 @@ namespace GeetestCrack
                     // try next action
                 }
             }
-			// failed
+            // failed
             return null;
         }
         private List<JsonObject> GetActions(int xpos)
@@ -470,7 +470,7 @@ namespace GeetestCrack
             } // exit unsafe
             bg.UnlockBits(bgData);
             full.UnlockBits(fullData);
-			//offset 6 pixel
+            //offset 6 pixel
             return xpos - 6; 
         }
     }
