@@ -14,7 +14,7 @@ namespace GeetestCrack
         private string referer = "";
         private string userAgent = "wsguest";
         Random rnd = new Random();
-		public string challenge
+        public string challenge
         {
             get
             {
@@ -436,7 +436,7 @@ namespace GeetestCrack
                     pBg[i + 2] = (byte)Math.Abs((int)pBg[i + 2] - pFull[i + 2]);
                 }
                 var w = bgData.Width;
-                // Roberts edge detect and calc histgram
+                // Roberts edge detect and calculate histgram
                 int[] histgram = new int[w];
                 int[] histSum = new int[w];
                 for (var y = 0; y < bgData.Height - 1; y++)
@@ -470,7 +470,7 @@ namespace GeetestCrack
             } // exit unsafe
             bg.UnlockBits(bgData);
             full.UnlockBits(fullData);
-            //offset 6 pixel
+            //offset 6 pixels
             return xpos - 6; 
         }
     }

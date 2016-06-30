@@ -7,3 +7,5 @@
 var gk = new Geek([gt], [siteurl]); 
 var v = gk.GetValidate();
 </code></pre>
+
+## contact: seai AT tom.com ##
