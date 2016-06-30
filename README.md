@@ -8,4 +8,6 @@ var gk = new Geek([gt], [siteurl]);
 var v = gk.GetValidate();
 </code></pre>
 
+## demo: [online test](http://120.25.101.52/gee/test.aspx )
+
 ## contact: seai AT tom.com ##
