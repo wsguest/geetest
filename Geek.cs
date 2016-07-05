@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Net;
 using System.Threading;
 using ServiceStack.Text;
@@ -12,7 +14,7 @@ namespace GeetestCrack
     {
         private JsonObject config = null;
         private string referer = "";
-        private string userAgent = "wsguest";
+        private string userAgent = "[your user agent]";
         Random rnd = new Random();
         public string challenge
         {
@@ -43,17 +45,22 @@ namespace GeetestCrack
         public Geek(string gt = "", string referer = "")
         {
             if (!string.IsNullOrEmpty(gt))
-                this.gt = gt;
+                config["gt"] = gt;
             if(!string.IsNullOrEmpty(referer))
                 this.referer = referer;
             GetConfig();
         }
-        public Geek(Uri url)
+        public Geek(Uri uri)
         {
-            string source = HttpUtility.Get(url.AbsoluteUri);
+            string source = "";
+            HttpWebRequest hreq = (HttpWebRequest)HttpWebRequest.Create(uri);
+            HttpWebResponse hres = (HttpWebResponse)hreq.GetResponse();
+            using (StreamReader sr = new StreamReader(hres.GetResponseStream()))
+                source = sr.ReadToEnd();
+            hres.Close();
             var obj = JsonObject.Parse(source);
             gt = obj.Get<string>("gt");
-            this.referer = url.Host;
+            this.referer = uri.Host;
             challenge = obj.Get<string>("challenge");
             GetConfig();
         }
@@ -150,7 +157,7 @@ namespace GeetestCrack
             {
                 xpos = action.Get<int>("pos");
                 //Console.WriteLine("try pos: " + xpos);
-                string response = GetResponseString(xpos, clng);
+                string response = GetResponseString(xpos, challenge);
                 int passTime = action.Get<int>("passtime");
                 string actString = action.Get<string>("action");
                 int imgLoadTime = rnd.Next(0, 200) + 50;
@@ -158,7 +165,7 @@ namespace GeetestCrack
                 var ajaxUrl = string.Format("{0}ajax.php?gt={1}&challenge={2}&imgload={3}&passtime={4}&userresponse={5}&a={6}&callback=cb",
                     config.Get<String>("apiserver"),
                     gt,
-                    clng,
+                    challenge,
                     imgLoadTime,
                     passTime,
                     response,
