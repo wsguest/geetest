@@ -1,19 +1,16 @@
 # try to crack geetest in CSharp
 ## dependencies: ##
-+ [ServiceStack](https://github.com/ServiceStack/ServiceStack/)
++ [ServiceStack.Text](https://github.com/ServiceStack/ServiceStack.Text) - [install](https://www.nuget.org/packages/ServiceStack.Text/)
 
 ## usage: ##
 <pre><code>
 
-var gk = new Geek([gt], [site]);
-//// or
-//var gk = new Geek(new Uri([gtUrl]));
-var jsonObj = gk.GetValidate();
-if (jsonObj != null)
-    // success
-    // Console.WriteLine(jsonObj);
-else
-    // failed
+            var gk = new Geek([gt], [site]);
+            var jsonObj = gk.GetValidate();
+            if (jsonObj != null)
+                Console.WriteLine(jsonObj["validate"]);
+            else
+                Console.WriteLine("*** failed ***");
 </code></pre>
 
 ## demo: 
