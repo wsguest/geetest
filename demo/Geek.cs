@@ -166,7 +166,7 @@ namespace GeetestCrack
                 int passTime = action.Get<int>("passtime");
                 string actString = action.Get<string>("action");
                 int imgLoadTime = rnd.Next(0, 200) + 50;
-                Thread.Sleep(passTime); // wait
+                
                 var ajaxUrl = string.Format("{0}ajax.php?gt={1}&challenge={2}&imgload={3}&passtime={4}&userresponse={5}&a={6}&callback=cb",
                     config.Get<String>("apiserver"),
                     gt,
