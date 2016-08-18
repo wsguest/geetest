@@ -14,8 +14,8 @@
 </code></pre>
 
 ## demo: 
-+ [online test](http://120.25.101.52/gee/test.aspx )
-+ [demo](http://120.25.101.52/gee/geetest.gif)
++ [online test](http://experiment.imwork.net/gee/test.aspx)
++ [demo](/wsguest/geetest/demo/geetest.gif)
 
 ## contact:  ##
-+ QQ:1595152095 AT qq.com
++ 1595152095 AT qq.com
