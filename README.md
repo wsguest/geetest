@@ -4,7 +4,6 @@
 
 ## usage: ##
 <pre><code>
-
             var gk = new Geek([gt], [site]);
             var jsonObj = gk.GetValidate();
             if (jsonObj != null)
@@ -15,7 +14,7 @@
 
 ## demo: 
 + [online test](http://experiment.imwork.net/gee/test.aspx)
-+ [demo](/wsguest/geetest/demo/geetest.gif)
++ [demo.gif](/demo/geetest.gif)
 
 ## contact:  ##
 + 1595152095 AT qq.com
