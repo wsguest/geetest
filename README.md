@@ -1,6 +1,6 @@
-# Try to crack geetest in C\#
+# Try to crack geetest in CSharp
 ## dependencies: ##
-+ [ServiceStack.Text](https://github.com/ServiceStack/ServiceStack.Text) - [install](https://www.nuget.org/packages/ServiceStack.Text/)
++ [ ServiceStack.Text](https://github.com/ServiceStack/ServiceStack.Text) - [install](https://www.nuget.org/packages/ServiceStack.Text/)
 
 ## usage: ##
 <pre><code>
@@ -13,8 +13,8 @@
 </code></pre>
 
 ## demo: ##
-+ Last night someone attacked the demo server, resulting in DoS, and now the demo link can not be opened for exhausted traffic. In the future, I will publish new behavior algorithm.(9/3/16)
 + ~~[online test](http://experiment.imwork.net/gee/test.aspx)~~
+Last night someone attacked the demo server, resulting in DoS, and now the demo link can not be opened for exhausted traffic. (9/3/16)
 + [demo.gif](/demo/geetest.gif)
 
 ## contact:  ##
