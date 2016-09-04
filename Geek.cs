@@ -166,7 +166,7 @@ namespace GeetestCrack
                 int passTime = action.Get<int>("passtime");
                 string actString = action.Get<string>("action");
                 int imgLoadTime = rnd.Next(0, 200) + 50;
-                
+                Thread.Sleep(passTime - imgLoadTime);
                 var ajaxUrl = string.Format("{0}ajax.php?gt={1}&challenge={2}&imgload={3}&passtime={4}&userresponse={5}&a={6}&callback=cb",
                     config.Get<String>("apiserver"),
                     gt,
@@ -234,6 +234,74 @@ namespace GeetestCrack
 
         }
 
+        private List<int[]> generate2(int xpos)
+        {
+            var sx = rnd.Next(15, 30);
+            var sy = rnd.Next(15, 30);
+            var arr = new List<int[]>();
+            arr.Add(new int[] { sx, sy, 0 });
+            
+            var maxCount = 100; // max len 100
+            var mds = 0.25;
+            var speed = rnd.NextDouble() * 0.3 + 0.05;
+            var ds = rnd.NextDouble() * 0.5 * mds;
+            var dsign = 1;
+            double x = 0;
+            double lx = xpos - x;
+            while (Math.Abs(lx) > 1.0 && maxCount-- > 0)
+            {
+                var rn = rnd.NextDouble();
+                var dt = rn * 100 + 10;
+                if (rn < 0.2)
+                {
+                    dt += rn * 200;
+                }
+
+                speed += ds * dsign;
+                if (speed > 0.25)
+                    speed = 0.25;
+                rn = rnd.NextDouble();
+
+                if (rn < (speed / 0.25))
+                    dsign = -dsign;
+                ds = rnd.NextDouble() * mds * 0.5; 
+                if (Math.Abs(lx) < 10)
+                {
+                    speed *= lx / 20;
+                }
+                else if (x < xpos / 3)
+                {
+                    speed *= (x / xpos + 1.0);
+                }
+
+                if (speed < 0)
+                    speed = -speed;
+                double dx = speed * dt;
+                if (Math.Abs(dx) < 0.6)
+                    continue;
+
+                x += dx;
+                if (x - xpos > 0 && dx > 0) 
+                {
+                    speed = -speed;
+                    x -= 2 * dx;
+                }
+
+                rn = rnd.NextDouble();
+                double dy = 0;
+                if (rn < 0.1 && dt > 70)
+                {
+                    dy = rn * 30;
+                    if (rn < 0.05)
+                        dy = -rn * 60;
+                }
+                arr.Add(new int[] { (int)(dx + 0.5), (int)(dy + 0.5), (int)(dt + 0.5) });
+                lx = xpos - x;
+            }
+            var dtlast = 500.0 * rnd.NextDouble() + 100.0;
+            arr.Add(new int[] { 0, 0, (int)(dtlast) });
+            return arr;
+        }
         private List<int[]> generate(int xpos)
         {
             var sx = rnd.Next(15, 30);
