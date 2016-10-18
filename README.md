@@ -13,9 +13,8 @@
 </code></pre>
 
 ## demo: ##
-+ ~~[online test](http://experiment.imwork.net/gee/test.aspx)~~
-Last night someone attacked the demo server, resulting in DoS, and now the demo link can not be opened for exhausted traffic. (9/3/16)
++ ~~[online test](http://wsguest.iok.la:14872/gee/test.aspx)
 + [demo.gif](/demo/geetest.gif)
 
 ## contact:  ##
-+ 1595152095 AT qq.com
++ 1595152095@qq.com
