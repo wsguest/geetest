@@ -13,7 +13,8 @@
 </code></pre>
 
 ## demo: ##
-+ ~~[online test](http://wsguest.iok.la:14872/gee/test.aspx)
++ [online test](http://wsguest.iok.la:14872/gee/test.aspx)
++ [online test2](http://wsguest.iok.la:14872/gee/test2.aspx)
 + [demo.gif](/demo/geetest.gif)
 
 ## contact:  ##
